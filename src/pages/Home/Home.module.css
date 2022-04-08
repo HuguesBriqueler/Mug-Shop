@@ -1,0 +1,22 @@
+.homeTitle {
+  margin-bottom: 10px;
+}
+.homeTitle span {
+  font-family: "Lobster", sans-serif;
+}
+
+.globalContainer {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.globalContainer p {
+  line-height: 1.4;
+  font-size: 18;
+  margin-bottom: 10px;
+}
+.globalContainer img {
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 5px;
+}
