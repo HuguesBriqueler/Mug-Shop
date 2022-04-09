@@ -9,7 +9,7 @@ export default function Products() {
       {inventory.map((item) => (
         <Link
           to={{
-            pathname: `/products/${item.id}`,
+            pathname: `/product/${item.id}`,
           }}
           key={item.id}
         >
