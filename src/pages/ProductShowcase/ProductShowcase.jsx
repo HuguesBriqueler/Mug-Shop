@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
@@ -9,6 +9,9 @@ export default function ProductShowcase() {
   const id = useParams().id;
   const item = inventory.find((item) => item.id === id);
   const [nbItems, setNbItems] = useState(1);
+  const addedToCart = useRef();
+  let timerId;
+  let isNotificationVisible = false;
   const dispatch = useDispatch();
 
   const handleQuantity = (e) => {
@@ -27,7 +30,25 @@ export default function ProductShowcase() {
       type: actions.ADDITEM,
       payload: { ...item, quantity: nbItems },
     });
+    // Here we display a notification message when the item is added to the cart
+    addedToCart.current.innerText = "Ajouté au panier";
+    // Then we set a timer to hide the notification after 2 seconds
+    if (!isNotificationVisible) {
+      timerId = setTimeout(() => {
+        addedToCart.current.innerText = "";
+        isNotificationVisible = false;
+      }, 2000);
+      isNotificationVisible = true;
+    }
   };
+
+  useEffect(() => {
+    // Here we clear the timer when the component is unmounted in case the notification
+    // is still visible when the user navigates to another page.
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, []);
 
   return (
     <div className={styles.showcase}>
@@ -50,7 +71,7 @@ export default function ProductShowcase() {
             onChange={handleQuantity}
           />
           <button type="submit">Ajouter au panier</button>
-          <span></span>
+          <span ref={addedToCart}></span>
         </form>
       </div>
     </div>
