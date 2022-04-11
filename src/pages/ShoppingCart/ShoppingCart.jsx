@@ -1,9 +1,23 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../../redux/actions";
 import styles from "./ShoppingCart.module.css";
 
 export default function ShoppingCart() {
   const cart = useSelector((state) => state.cart);
+  console.log(cart);
+  const dispatch = useDispatch();
+
+  const handleQuantity = (e, id) => {
+    const newQuantity = Number(e.target.value);
+    if (newQuantity > 0) {
+      const index = cart.findIndex((item) => item.id === id);
+      dispatch({
+        type: actions.UPDATEITEM,
+        payload: { ...cart[index], quantity: newQuantity },
+      });
+    }
+  };
 
   return (
     <div className="global-container">
@@ -21,7 +35,12 @@ export default function ShoppingCart() {
             </div>
             <div className={styles.bloc_input}>
               <label htmlFor="inputQuantity">Quantité</label>
-              <input type="number" id="inputQuantity" value={item.quantity} />
+              <input
+                type="number"
+                onChange={(e) => handleQuantity(e, item.id)}
+                id="inputQuantity"
+                value={item.quantity}
+              />
             </div>
           </li>
         ))}
