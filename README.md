@@ -1,9 +1,9 @@
-## Mug Shop
+# Mug Shop
 
 is an e-commerce like project using React & Redux.
 It offers a product catalog and shopping cart.
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
