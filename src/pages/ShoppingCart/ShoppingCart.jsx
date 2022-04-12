@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
 import styles from "./ShoppingCart.module.css";
+import CartItem from "../../components/CartItem/CartItem";
 
 export default function ShoppingCart() {
   const cart = useSelector((state) => state.cart);
@@ -35,28 +35,12 @@ export default function ShoppingCart() {
       <p className={styles.headingCart}></p>
       <ul className={styles.cartList}>
         {cart.map((item) => (
-          <li key={item.id}>
-            <img
-              src={process.env.PUBLIC_URL + `/images/${item.img}.png`}
-              alt={item.title}
-            />
-            <div className={styles.bloc_cart_infos}>
-              <h4>{item.title}</h4>
-              <p>{item.price}</p>
-            </div>
-            <button type="button" onClick={() => handleRemoveItem(item.id)}>
-              Supprimer
-            </button>
-            <div>
-              <label htmlFor="inputQuantity">Quantité</label>
-              <input
-                type="number"
-                onChange={(e) => handleQuantity(e, item.id)}
-                id="inputQuantity"
-                value={item.quantity}
-              />
-            </div>
-          </li>
+          <CartItem
+            key={item.id}
+            item={item}
+            handleQuantity={handleQuantity}
+            handleRemoveItem={handleRemoveItem}
+          />
         ))}
       </ul>
       <p className={styles.total_price}>Total: {totalPrice.toFixed(2)}€</p>
