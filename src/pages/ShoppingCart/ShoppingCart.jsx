@@ -19,6 +19,13 @@ export default function ShoppingCart() {
     }
   };
 
+  const handleRemoveItem = (id) => {
+    dispatch({
+      type: actions.REMOVEITEM,
+      payload: id,
+    });
+  };
+
   const totalPrice = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
@@ -37,7 +44,10 @@ export default function ShoppingCart() {
               <h4>{item.title}</h4>
               <p>{item.price}</p>
             </div>
-            <div className={styles.bloc_input}>
+            <button type="button" onClick={() => handleRemoveItem(item.id)}>
+              Supprimer
+            </button>
+            <div>
               <label htmlFor="inputQuantity">Quantité</label>
               <input
                 type="number"

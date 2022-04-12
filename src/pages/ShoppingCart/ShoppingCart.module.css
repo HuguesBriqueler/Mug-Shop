@@ -12,6 +12,10 @@
   margin-top: 0px;
   width: 50px;
 }
+.cartList button {
+  margin-left: auto;
+  margin-right: 10px;
+}
 .bloc_cart_infos {
   padding: 15px 15px;
   height: 100%;
@@ -23,9 +27,7 @@
 .cartList p {
   font-size: 18px;
 }
-.bloc_input {
-  margin-left: auto;
-}
+
 .bloc_input label {
   margin-right: 10px;
   font-size: 20px;

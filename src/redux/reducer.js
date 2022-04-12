@@ -31,20 +31,22 @@ export default function reducer(state = INITIAL_STATE, action) {
       const itemUpdateIndex = state.cart.findIndex(
         (item) => item.id === action.payload.id
       );
-      console.log(itemUpdateIndex);
-      console.log(action.payload);
-
-      const newCart = [...state.cart];
-      newCart[itemUpdateIndex] = action.payload;
+      const updatedCart = [...state.cart];
+      updatedCart[itemUpdateIndex] = action.payload;
 
       return {
-        cart: newCart,
+        cart: updatedCart,
       };
 
     case actions.REMOVEITEM:
+      const itemRemoveIndex = state.cart.findIndex(
+        (item) => item.id === action.payload
+      );
+      const removedCart = [...state.cart];
+      removedCart.splice(itemRemoveIndex, 1);
+
       return {
-        ...state,
-        [action.payload.id]: action.payload,
+        cart: removedCart,
       };
     default:
       return state;
