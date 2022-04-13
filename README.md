@@ -3,16 +3,19 @@
 is an e-commerce like project using React & Redux.
 It offers a product catalog and shopping cart.
 </br>
+</br>
+You can click on the screenshot to give it a try
+</br>
 <table>
   <tr>
     <td align="center">
     <a href="https://huguesbriqueler.github.io/Mug-Shop/">
-      <img src="https://ibb.co/myCN9pC" width="240px" alt="Mug-Shop Products screen">
+      <img src="https://i.ibb.co/kDgm4Zg/Mug-Shop-Products.png" width="240px" alt="Mug-Shop Products screen">
     </a>
     </td>
     <td align="center">
     <a href="https://huguesbriqueler.github.io/Mug-Shop/">
-      <img src="https://ibb.co/B3gxKRw" width="240px" alt="Mug-Shop Cart screen">
+      <img src="https://i.ibb.co/r0ZSfJv/Mug-Shop-Cart.png" width="240px" alt="Mug-Shop Cart screen">
     </a>
     </td>
   </tr>
