@@ -2,7 +2,23 @@
 
 is an e-commerce like project using React & Redux.
 It offers a product catalog and shopping cart.
+</br>
+<table>
+  <tr>
+    <td align="center">
+    <a href="https://huguesbriqueler.github.io/Mug-Shop/">
+      <img src="https://ibb.co/myCN9pC" width="240px" alt="Mug-Shop Products screen">
+    </a>
+    </td>
+    <td align="center">
+    <a href="https://huguesbriqueler.github.io/Mug-Shop/">
+      <img src="https://ibb.co/B3gxKRw" width="240px" alt="Mug-Shop Cart screen">
+    </a>
+    </td>
+  </tr>
+</table>
 
+</br>
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
